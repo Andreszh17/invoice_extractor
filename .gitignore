@@ -1,0 +1,24 @@
+# 1. Variables de entorno
+.env
+.env.*
+!.env.example
+
+# 2. Entornos virtuales
+.venv/
+venv/
+env/
+
+# 3. Archivos compilados de Python y caché
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# 4. Archivos de VS Code
+.vscode/
+
+# 5. Archivos de prueba (Facturas)
+*.pdf
+*.png
+*.jpg
+*.jpeg

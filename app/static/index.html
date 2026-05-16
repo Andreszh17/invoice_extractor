@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracción Inteligente de Facturas</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-placeholder">AI</div>
+            <h1>Procesamiento de Facturas</h1>
+            <p>Sube tu factura en PDF o imagen y deja que el llm extraiga los datos.</p>
+        </header>
+
+        <section class="upload-section">
+            <form id="uploadForm">
+                <div class="file-drop-area">
+                    <span class="file-msg">Arrastra tu archivo aquí o haz clic para buscar</span>
+                    <input class="file-input" type="file" id="invoiceFile" accept=".pdf, .png, .jpg, .jpeg" required>
+                </div>
+                <button type="submit" id="submitBtn">Procesar Factura</button>
+            </form>
+        </section>
+
+        <!-- Indicador de carga -->
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Analizando documento con Inteligencia Artificial...</p>
+        </div>
+
+        <!-- Mensaje de Error -->
+        <div id="errorMessage" class="error-msg hidden"></div>
+
+        <!-- Resultados -->
+        <section id="resultsSection" class="results-section hidden">
+            <h2>Datos Extraídos con Éxito</h2>
+            
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Datos del Cliente</h3>
+                    <p><strong>Nombre:</strong> <span id="resNombre"></span></p>
+                    <p><strong>Dirección:</strong> <span id="resDireccion"></span></p>
+                    <p><strong>Celular:</strong> <span id="resCelular"></span></p>
+                </div>
+                <div class="card">
+                    <h3>Datos de Facturación</h3>
+                    <p><strong>Fecha:</strong> <span id="resFecha"></span></p>
+                    <p class="total-highlight"><strong>Total:</strong> $<span id="resTotal"></span></p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>Detalle de Productos/Servicios</h3>
+                <table id="detailsTable">
+                    <thead>
+                        <tr>
+                            <th>Producto / Descripción</th>
+                            <th>Cant.</th>
+                            <th>Valor Unitario</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas son dinamicas-->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
